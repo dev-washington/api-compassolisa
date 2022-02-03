@@ -1,27 +1,21 @@
 const express = require('express')
-const routes = require('./routes/v1/index')
-const database = require('./infra/database/mongo/index')
+const router = require('./routes')
+require('./infra/database/mongo')
 
 class App {
-  static async init (env) {
+  constructor () {
     this.server = express()
-    this.middleware()
-    this.route()
-
-    try {
-      await database.init(env)
-    } catch (error) {
-      console.log(error)
-    }
+    this.middlewares()
+    this.routes()
   }
 
-  middleware () {
+  middlewares () {
     this.server.use(express.json())
   }
 
-  route () {
-    routes(this.server)
+  routes () {
+    router(this.server)
   }
 }
 
-module.exports = App
+module.exports = new App().server
