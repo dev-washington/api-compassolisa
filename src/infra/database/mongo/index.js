@@ -6,7 +6,7 @@ class Database {
   }
 
   connect () {
-    return mongoose.connect('mongodb://localhost:2707/compassolisa')
+    return mongoose.connect('mongodb://localhost:27017/compassolisa')
   }
 }
 
