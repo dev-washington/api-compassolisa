@@ -14,6 +14,10 @@ class CarRepository {
       _id: id
     })
   }
+
+  async update (payload) {
+    return CarSchema.updateOne(payload)
+  }
 }
 
 module.exports = new CarRepository()
