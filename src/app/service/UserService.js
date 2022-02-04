@@ -5,6 +5,18 @@ class UserService {
     const result = await UserRepository.create(payload)
     return result
   }
+
+  async findAll (payload) {
+    const result = await UserRepository.findAll({
+      nome: payload.nome,
+      cpf: payload.cpf,
+      data_nascimento: payload.data_nascimento,
+      email: payload.email,
+      senha: payload.senha,
+      habilitado: payload.habilitado
+    })
+    return result
+  }
 }
 
 module.exports = new UserService()
