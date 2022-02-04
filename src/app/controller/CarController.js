@@ -50,8 +50,8 @@ class CarController {
     const { id } = req.params
     const updateCar = req.body
     try {
-      const response = await CarService.update(id, updateCar)
-      return res.status(200).json(response)
+      const result = await CarService.update(id, updateCar)
+      return res.status(200).json(result)
     } catch (error) {
       return res.status(500).json(error.mensage)
     }
