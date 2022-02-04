@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const validDate = require('../../helper/checkDate')
+const validDate = require('../../helper/validDate')
 
 module.exports = async (req, res, next) => {
   try {
