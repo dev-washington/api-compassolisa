@@ -27,6 +27,24 @@ class CarController {
       return res.status(500).json(error.mesage)
     }
   }
+
+  async getById (req, res) {
+    const { id } = req.params
+    try {
+      const result = await CarService.getById({
+        where: {
+          id: Number(id)
+        }
+      })
+      if (!result) {
+        return res.status(204).json()
+      } else {
+        return res.status(200).json(result)
+      }
+    } catch (error) {
+      return res.status(500).json(error.message)
+    }
+  }
 }
 
 module.exports = new CarController()
