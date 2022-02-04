@@ -8,6 +8,12 @@ class CarRepository {
   async findAll (payload) {
     return CarSchema.findAll(payload)
   }
+
+  async getById (id) {
+    return CarSchema.getById({
+      _id: id
+    })
+  }
 }
 
 module.exports = new CarRepository()
