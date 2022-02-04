@@ -22,8 +22,8 @@ class CarService {
   }
 
   async update (id, body) {
-    const carUp = await CarRepository.update(id, new CarRepository(body.modelo, body.cor, body.ano, body.acessorios, body.quantidadePassageiros))
-    const result = carUp.value
+    const Upcar = await CarRepository.update(id, new CarRepository(body.modelo, body.cor, body.ano, body.acessorios, body.quantidadePassageiros))
+    const result = Upcar.value
     return new CarRepository(result.modelo, result.cor, result.ano, result.acessorios, result.quantidadePassageiros)
   }
 }
