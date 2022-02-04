@@ -16,7 +16,7 @@ class CarRepository {
   }
 
   async update (payload) {
-    return CarSchema.updateMany(payload)
+    return CarSchema.updateOne(payload)
   }
 }
 
