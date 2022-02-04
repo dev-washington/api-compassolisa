@@ -1,10 +1,8 @@
 // importando o mongo
 const mongoose = require('mongoose')
 
-const Schema = mongoose.Schema
-
 // criar a tabela carro
-const carSchema = new Schema({
+const CarSchema = mongoose.Schema({
   modelo: {
     type: String,
     required: true
@@ -19,14 +17,14 @@ const carSchema = new Schema({
   },
   acessorios: {
     type: Array,
-    reequired: true
+    required: true
   },
-  quantidadePassageeiros: {
+  quantidadePassageiros: {
     type: Number,
     required: true
   }
 })
 
-const Car = mongoose.model('Car', carSchema)
-// exportando o modelo carro
+const Car = mongoose.model('Car', CarSchema)
+
 module.exports = Car
