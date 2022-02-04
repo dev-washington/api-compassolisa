@@ -20,7 +20,7 @@ Para obter o projeto em sua máquina local
 - [x] Utilizando o git bash
 ```bash
 # execute esse comando
-git clone
+git clone https://github.com/washington-wj/api-compassolisa.git
 ```
 
 
