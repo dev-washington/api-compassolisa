@@ -65,7 +65,7 @@ npm install express
 
 - Car
 
-| Action           | Route           | Request    | Endepoint         |
+| Action           | URI             | Verb HTTP  | Endepoint         |
 | -----------------| --------------  | ---------- | ----------------- |
 |:arrow_right_hook:|/api/v1/car      |    GET     | Listar Carro      |
 |:arrow_right_hook:|/api/v1/car/:id  |    GET     | Consultar um Carro|
@@ -75,6 +75,6 @@ npm install express
 
 - User
 
-| Action          | Route           | Request    | Endepoint       |
-| --------------- | --------------- | ---------- | --------------- |
-|:heavy_plus_sign:|/api/v1/car      |    POST    | Cadastrar Carro |
+| Action          | URI             | Verb HTTP  | Endepoint        |
+| --------------- | --------------- | ---------- | ---------------  |
+|:heavy_plus_sign:|/api/v1/car      |    POST    | Cadastrar Usuario|
