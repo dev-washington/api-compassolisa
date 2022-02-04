@@ -4,5 +4,6 @@ const CarController = require('../app/controller/CarController')
 module.exports = (server, routes, prefix = '/api/v1') => {
   routes
     .post('/car', CarController.create)
+    .get('/car', CarController.getAll)
   server.use(prefix, routes)
 }
