@@ -61,7 +61,10 @@ class CarController {
     const { id } = req.params
     try {
       const response = await CarService.delete(id)
-      return res.status(200).json(response)
+      if (!id) {
+        return res.status(400).json()
+      }
+      return res.status(204).json(response)
     } catch (error) {
       return res.status(500).json(error.mensage)
     }
