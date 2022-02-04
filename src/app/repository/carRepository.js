@@ -1,8 +1,8 @@
-const schema = require('../schema/carSchema')
+const CarSchema = require('../schema/CarSchema')
 
 class CarRepository {
-  async create (playload) {
-    return schema.create(playload)
+  async create (payload) {
+    return CarSchema.create(payload)
   }
 }
 
