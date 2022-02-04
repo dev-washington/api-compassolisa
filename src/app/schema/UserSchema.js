@@ -16,11 +16,14 @@ const UserSchema = mongoose.Schema({
   },
   email: {
     type: String,
+    unique: true,
+    lowercase: true,
     required: true
   },
   senha: {
     type: String,
-    required: true
+    required: true,
+    select: false
   }
 })
 
