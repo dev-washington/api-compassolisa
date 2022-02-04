@@ -14,6 +14,12 @@ class CarService {
 
     return carList
   }
+
+  async getById (id) {
+    const oneCar = await CarRepository.getById(id)
+
+    return new CarRepository(oneCar.modelo, oneCar.cor, oneCar.ano, oneCar.acessorios, oneCar.quantidadePassageiros)
+  }
 }
 
 module.exports = new CarService()
