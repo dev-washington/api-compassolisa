@@ -2,9 +2,9 @@ const UserService = require('../service/UserService')
 
 class UserController {
   async create (req, res) {
-    const add = req.body
+    const addUser = req.body
     try {
-      const result = await UserService.create(add)
+      const result = await UserService.create(addUser)
       return res.status(201).json(result)
     } catch (error) {
       return res.status(500).json(error.mensage)
