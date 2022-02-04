@@ -18,6 +18,10 @@ class CarRepository {
   async update (payload) {
     return CarSchema.updateOne(payload)
   }
+
+  async delete (id) {
+    return CarSchema.deleteOne(id)
+  }
 }
 
 module.exports = new CarRepository()

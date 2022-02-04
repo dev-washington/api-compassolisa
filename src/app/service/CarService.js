@@ -26,6 +26,11 @@ class CarService {
     const result = Upcar.value
     return new CarRepository(result.modelo, result.cor, result.ano, result.acessorios, result.quantidadePassageiros)
   }
+
+  async delete (id) {
+    const result = await CarRepository.delete(id)
+    return result
+  }
 }
 
 module.exports = new CarService()
