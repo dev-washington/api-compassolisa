@@ -73,9 +73,8 @@ npm install express
 | :recycle:        |/api/v1/car/:id  |    PUT     | Atualizar Carro   |
 |   :x:            |/api/v1/car/:id  |    DELETE  | Deletar Carro     |
 
-- People
+- User
 
 | Action          | Route           | Request    | Endepoint       |
 | --------------- | --------------- | ---------- | --------------- |
 |:heavy_plus_sign:|/api/v1/car      |    POST    | Cadastrar Carro |
-
