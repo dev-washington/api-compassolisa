@@ -6,8 +6,8 @@ class CarService {
     return result
   }
 
-  async findAll (payload) {
-    const carList = await CarRepository.findAll(payload)
+  async list (payload) {
+    const carList = await CarRepository.list(payload)
     carList.map((car) => {
       return new CarRepository(car.modelo, car.cor, car.ano, car.acessorios, car.quantidadePassageiros)
     })
@@ -15,8 +15,8 @@ class CarService {
     return carList
   }
 
-  async getById (id) {
-    const oneCar = await CarRepository.getById(id)
+  async findOne (id) {
+    const oneCar = await CarRepository.findOne(id)
 
     return new CarRepository(oneCar.modelo, oneCar.cor, oneCar.ano, oneCar.acessorios, oneCar.quantidadePassageiros)
   }
