@@ -11,10 +11,10 @@ class UserController {
     }
   }
 
-  async findAll (req, res) {
+  async list (req, res) {
     const payload = req.params
     try {
-      const response = await UserService.findAll({
+      const response = await UserService.list({
         nome: payload.nome,
         cpf: payload.cpf,
         data_nascimento: payload.data_nascimento,
