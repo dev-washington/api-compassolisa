@@ -11,10 +11,10 @@ class CarController {
     }
   }
 
-  async getAll (req, res, next) {
+  async list (req, res, next) {
     const payload = req.params
     try {
-      const result = await CarService.findAll({
+      const result = await CarService.list({
         modelo: payload.modelo,
         cor: payload.cor,
         ano: payload.ano,
@@ -28,10 +28,10 @@ class CarController {
     }
   }
 
-  async getById (req, res) {
+  async findOne (req, res) {
     const { id } = req.params
     try {
-      const result = await CarService.getById({
+      const result = await CarService.findOne({
         where: {
           id: Number(id)
         }
