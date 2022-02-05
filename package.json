@@ -15,7 +15,8 @@
     "dotenv": "^14.3.2",
     "express": "^4.17.2",
     "joi": "^17.6.0",
-    "mongoose": "^6.1.8"
+    "mongoose": "^6.1.8",
+    "mongoose-paginate-v2": "^1.6.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
