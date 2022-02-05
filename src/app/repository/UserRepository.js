@@ -5,8 +5,8 @@ class UserRepository {
     return UserSchema.create(payload)
   }
 
-  async findAll (payload) {
-    return UserSchema.findAll(payload)
+  async list (payload) {
+    return UserSchema.list(payload)
   }
 }
 
