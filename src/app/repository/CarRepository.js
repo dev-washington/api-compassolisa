@@ -5,12 +5,12 @@ class CarRepository {
     return CarSchema.create(payload)
   }
 
-  async findAll (payload) {
-    return CarSchema.findAll(payload)
+  async list (payload) {
+    return CarSchema.list(payload)
   }
 
-  async getById (id) {
-    return CarSchema.getById({
+  async findOne (id) {
+    return CarSchema.findOne({
       _id: id
     })
   }
