@@ -1,7 +1,6 @@
-// importando o mongo
 const mongoose = require('mongoose')
+const mongoosePaginate = require('mongoose-paginate-v2')
 
-// criar a tabela carro
 const CarSchema = mongoose.Schema({
   modelo: {
     type: String,
@@ -25,6 +24,10 @@ const CarSchema = mongoose.Schema({
   }
 })
 
+CarSchema.plugin(mongoosePaginate)
+
 const Car = mongoose.model('Car', CarSchema)
+
+Car.paginate().then({})
 
 module.exports = Car
