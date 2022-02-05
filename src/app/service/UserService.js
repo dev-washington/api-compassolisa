@@ -6,8 +6,8 @@ class UserService {
     return result
   }
 
-  async findAll (payload) {
-    const result = await UserRepository.findAll({
+  async list (payload) {
+    const result = await UserRepository.list({
       nome: payload.nome,
       cpf: payload.cpf,
       data_nascimento: payload.data_nascimento,
