@@ -65,7 +65,9 @@ npm init -y
 npm install express
 ```
 
-**Testando Rotas No Postman**
+**Testando Rotas**
+
+`UTILIZANDO O POSTMAN OU INSOMINIA`
 
 - Car
 
