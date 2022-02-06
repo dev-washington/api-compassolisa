@@ -14,13 +14,7 @@ class CarController {
   async list (req, res, next) {
     const payload = req.params
     try {
-      const result = await CarService.list({
-        modelo: payload.modelo,
-        cor: payload.cor,
-        ano: payload.ano,
-        acessorios: payload.acessorios,
-        quantidadePassageiros: payload.quantidadePassageiros
-      })
+      const result = await CarService.list(payload)
       return res.status(200).json(result)
     } catch (error) {
       next(error)
