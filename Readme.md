@@ -1,5 +1,6 @@
+<div aling="center">
 # :oncoming_automobile: ![Badge](https://img.shields.io/static/v1?label=status&message=em%20desenvolvimento&color=yellow&style=flat&logo=GITHUB)
-
+</div>
 <div align="center">
 <img src="https://user-images.githubusercontent.com/75760299/152702734-4b4875ef-4cf7-44d2-89ce-1837f166b206.jpg" width="850px"/>
 </div> 
