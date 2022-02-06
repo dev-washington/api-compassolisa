@@ -2,9 +2,9 @@ const UserService = require('../service/UserService')
 
 class UserController {
   async create (req, res) {
-    const addUser = req.body
+    const payload = req.body
     try {
-      const result = await UserService.create(addUser)
+      const result = await UserService.create(payload)
       return res.status(201).json(result)
     } catch (error) {
       return res.status(500).json(error.mensage)
@@ -14,15 +14,40 @@ class UserController {
   async list (req, res) {
     const payload = req.params
     try {
-      const response = await UserService.list({
-        nome: payload.nome,
-        cpf: payload.cpf,
-        data_nascimento: payload.data_nascimento,
-        email: payload.email,
-        senha: payload.senha,
-        habilitado: payload.habilitado
-      })
-      return res.status(200).json(response)
+      const result = await UserService.list(payload)
+      return res.status(200).json(result)
+    } catch (error) {
+      return res.status(500).json(error.mensage)
+    }
+  }
+
+  async findById (req, res) {
+    try {
+      const result = await UserService.findById(req.params.id)
+      if (!result) {
+        return res.status(204).json()
+      }
+      return res.status(200).json(result)
+    } catch (error) {
+      return res.status(500).json(error.mensage)
+    }
+  }
+
+  async update (req, res) {
+    const id = req.params
+    const payload = req.body
+    try {
+      const result = await UserService.update(id, payload)
+      return res.status(200).json(result)
+    } catch (error) {
+      return res.status(500).json(error.mensage)
+    }
+  }
+
+  async delete (req, res) {
+    try {
+      const result = await UserService.delete(req.params.id)
+      return res.status(200).json(result)
     } catch (error) {
       return res.status(500).json(error.mensage)
     }
