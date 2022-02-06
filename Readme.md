@@ -1,7 +1,7 @@
 # :oncoming_automobile: ![Badge](https://img.shields.io/static/v1?label=status&message=em%20desenvolvimento&color=yellow&style=flat&logo=GITHUB)
 ![ferrari-sf90-stradale-1559165263449_v2_4x3](https://user-images.githubusercontent.com/75760299/152702734-4b4875ef-4cf7-44d2-89ce-1837f166b206.jpg)
 <div align="center">
-<img src="https://user-images.githubusercontent.com/75760299/152702734-4b4875ef-4cf7-44d2-89ce-1837f166b206.jpg" width="500px"/>
+<img src="https://user-images.githubusercontent.com/75760299/152702734-4b4875ef-4cf7-44d2-89ce-1837f166b206.jpg" width="800px"/>
 </div> 
 
 # Register Compassolisa 
