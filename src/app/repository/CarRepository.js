@@ -6,17 +6,36 @@ class CarRepository {
   }
 
   async list (payload) {
-    const result = await CarSchema.find(payload)
+    const myCustomLabels = {
+      totalDocs: 'total',
+      docs: 'veiculos',
+      page: 'offset',
+      nextPage: false,
+      prevPage: false,
+      totalPages: 'offsets',
+      pagingCounter: false,
+      meta: false,
+      hasPrevPage: false,
+      hasNextPage: false
+    }
 
+    const options = {
+      page: 1,
+      limit: 100,
+      customLabels: myCustomLabels
+    }
+    return CarSchema.paginete(payload, options, {})
+  }
+
+  async findById (id) {
+    return CarSchema.findById({
+      _id: id
+    })
+  }
+
+  async update (id, payload) {
+    const result = await CarSchema.findByIdAndUpdate(id, payload, { new: true })
     return result
-  }
-
-  async findOne (id) {
-    return CarSchema.findOne(id)
-  }
-
-  async update (payload) {
-    return CarSchema.updateOne(payload)
   }
 
   async delete (id) {
