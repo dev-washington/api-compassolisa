@@ -1,5 +1,5 @@
 const Joi = require('joi')
-const validDate = require('../../helper/validDate')
+const CheckDate = require('../../helper/CheckDate')
 
 module.exports = async (req, res, next) => {
   try {
@@ -14,7 +14,7 @@ module.exports = async (req, res, next) => {
         .min('1950')
         .max('2022')
         .custom((value, help) => {
-          if (validDate(value)) {
+          if (CheckDate(value)) {
             return help.message('Ano Inválido')
           } else {
             return true
