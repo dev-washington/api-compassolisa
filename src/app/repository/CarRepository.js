@@ -6,13 +6,13 @@ class CarRepository {
   }
 
   async list (payload) {
-    return CarSchema.list(payload)
+    const result = await CarSchema.find(payload)
+
+    return result
   }
 
   async findOne (id) {
-    return CarSchema.findOne({
-      _id: id
-    })
+    return CarSchema.findOne(id)
   }
 
   async update (payload) {
