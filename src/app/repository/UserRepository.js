@@ -6,7 +6,23 @@ class UserRepository {
   }
 
   async list (payload) {
-    return UserSchema.list(payload)
+    const result = await UserSchema.find(payload)
+    return result
+  }
+
+  async findById (id) {
+    return UserSchema.findById({
+      _id: id
+    })
+  }
+
+  async update (id, payload) {
+    const result = await UserSchema.findByIdAndUpdate(id, payload)
+    return result
+  }
+
+  async delete (id) {
+    return UserSchema.deleteOne(id)
   }
 }
 
