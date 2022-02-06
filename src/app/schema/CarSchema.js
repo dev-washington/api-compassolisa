@@ -25,9 +25,30 @@ const CarSchema = mongoose.Schema({
 })
 
 CarSchema.plugin(mongoosePaginate)
+const consult = {
+
+  totalDocs: 'itemCount',
+  limit: 'perPage',
+  offset: 'offset',
+  offsets: 'offsetCount'
+
+}
+const options = {
+  page: 1,
+  limit: 10,
+  collaction: {
+    locale: 'en'
+  },
+  customLabels: consult
+}
 
 const Car = mongoose.model('Car', CarSchema)
 
-Car.paginate().then({})
+Car.paginate(consult, options).then(function (result) {
+  result.itemCount = 3464
+  result.limit = 100
+  result.offset = 1
+  result.offsets = 35
+})
 
 module.exports = Car
