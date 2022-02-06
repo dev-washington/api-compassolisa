@@ -24,7 +24,7 @@ git clone https://github.com/washington-wj/api-compassolisa.git
 ```
 
 
-### 🔧 Instalação
+### 🔧 Instalação 
 Para rodar a aplicação é necessario fazer algumas configurações
 - [x] Anexar o arquivo .env com as seguintes instruções
 
@@ -61,7 +61,9 @@ npm init -y
 npm install express
 ```
 
-**Testando Rotas No Postman**
+**Testando Rotas**
+
+`UTILIZANDO O POSTMAN OU INSOMINIA`
 
 - Car
 
