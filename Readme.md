@@ -1,5 +1,9 @@
 # :oncoming_automobile: ![Badge](https://img.shields.io/static/v1?label=status&message=em%20desenvolvimento&color=yellow&style=flat&logo=GITHUB)
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/75760299/152702734-4b4875ef-4cf7-44d2-89ce-1837f166b206.jpg" width="850px"/>
+</div> 
+
 # Register Compassolisa 
 Olá dev tudo bem? Este é o 4º Desafio da 5º Sprint do programa de bolsas NodeJs, onde foi realizado um aplicação API REST FULL, com os conhecimentos adquiridos pelos instrutores do programa, a cada sprint realizada e os recursos fornecidos pelo programa.  
 
