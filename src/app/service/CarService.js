@@ -7,25 +7,25 @@ class CarService {
   }
 
   async list (payload) {
-    const carList = await CarRepository.list(payload)
+    const result = await CarRepository.list(payload)
 
-    return carList
+    return result
   }
 
-  async findOne (id) {
-    const oneCar = await CarRepository.findOne(id)
+  async findById (id) {
+    const result = await CarRepository.findById(id)
 
-    return new CarRepository(oneCar.modelo, oneCar.cor, oneCar.ano, oneCar.acessorios, oneCar.quantidadePassageiros)
+    return result
   }
 
-  async update (id, body) {
-    const Upcar = await CarRepository.update(id, new CarRepository(body.modelo, body.cor, body.ano, body.acessorios, body.quantidadePassageiros))
-    const result = Upcar.value
-    return new CarRepository(result.modelo, result.cor, result.ano, result.acessorios, result.quantidadePassageiros)
+  async update (id, payload) {
+    const result = await CarRepository.update({})
+    return result
   }
 
   async delete (id) {
-    const result = await CarRepository.delete(id)
+    const result = await this.findById(id)
+    await CarRepository.delete(result)
     return result
   }
 }
