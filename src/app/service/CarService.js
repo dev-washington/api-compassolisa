@@ -8,9 +8,6 @@ class CarService {
 
   async list (payload) {
     const carList = await CarRepository.list(payload)
-    carList.map((car) => {
-      return new CarRepository(car.modelo, car.cor, car.ano, car.acessorios, car.quantidadePassageiros)
-    })
 
     return carList
   }
