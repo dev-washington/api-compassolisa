@@ -1,6 +1,6 @@
 const Joi = require('celebrate')
-const validCpf = require('../../helper/validCPF')
-const validDate = require('../../helper/validDate')
+const CheckCpf = require('../../helper/CheckCPF')
+const CheckDate = require('../../helper/CheckDate')
 
 module.exports = async (req, res, next) => {
   try {
@@ -12,7 +12,7 @@ module.exports = async (req, res, next) => {
         .min(11)
         .max(11)
         .custom((value, help) => {
-          if (validCpf(value)) {
+          if (CheckCpf(value)) {
             return help.mesage('CPF inválido')
           }
           return true
@@ -21,7 +21,7 @@ module.exports = async (req, res, next) => {
 
       data_nascimento: Joi.string()
         .custom((value, help) => {
-          if (validDate(value)) {
+          if (CheckDate(value)) {
             return help.mesage('Data inválida')
           }
           return true
