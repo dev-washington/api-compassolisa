@@ -4,7 +4,7 @@
   "description": "",
   "main": " ./src/server.js",
   "scripts": {
-    "dev": "nodemon ./src/server.js"
+    "dev": "nodemon -r dotenv/config ./src/server.js"
   },
   "keywords": [],
   "author": "washington jose",
@@ -16,7 +16,8 @@
     "express": "^4.17.2",
     "joi": "^17.6.0",
     "mongoose": "^6.1.8",
-    "mongoose-paginate-v2": "^1.6.0"
+    "mongoose-paginate-v2": "^1.6.0",
+    "swagger-ui-express": "^4.3.0"
   },
   "devDependencies": {
     "eslint": "^7.32.0",
