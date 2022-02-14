@@ -1,0 +1,680 @@
+{
+   "openapi": "3.0.1",
+   "info": {
+     "title": "API Compassolisa",
+     "description": "API que gerencia o aluguel de carro de luxo e semi luxo",
+     "termsOfService": "https://localhost:3000/terms",
+     "contact": {
+        "email": "washington.pere_BOLS@compasso.com.br"
+     },
+     "version": "0.0.1",
+     "license": {
+       "name": "Lincense: MIT",
+       "url": "https://opensource.org/licenses/MIT"
+     }
+   },
+   "servers": [
+     {
+       "url": "http://localhost:3000/api/v1",
+       "description": "API de produção"
+     }
+   ], 
+   "paths": {
+     "/car": {
+       "post": {
+         "summary": "Cadastrar o carro",
+         "description": "Essa rota será responsavel por cadastrar um novo carro",
+         "tags": ["Cars"],
+         "requestBody": {
+           "content": {
+             "application/json" :{
+               "schema": {
+                 "$ref": "#/components/schemas/Car"                 
+               },
+               "examples":{
+                 "car": {
+                   "value": {
+                    "modelo": "Onix 1.6",
+                    "cor": "azul",
+                    "ano": "2020",
+                    "acessorios": [
+                    { "descricao": "Ar-condicionado" },
+                    { "descricao": "Dir. elétrica" },
+                    { "descricao": "Camera de ré" },
+                    { "descricao": "Vidros elétricos dianteiro e traseiro" },
+                    { "descricao": "4 portas" },
+                    { "descricao": "gasolina" },
+                    { "descricao": "Air bag" },
+                    { "descricao": "ABS" }
+                    ],
+                    "quantidadePassageiros": 5
+                   }  
+                 }
+               } 
+             }   
+           }             
+         },
+         "responses": {
+           "404": {
+             "description": "Not found"
+           },
+           "400": {
+             "description": "Indifferent of standard"
+           },
+           "201": {
+             "description": "Created sucess",
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "type": "object",
+                   "$ref":"#/components/schemas/Car"
+                 }
+               }
+             }  
+           } 
+         } 
+       },
+       "get": {
+         "summary":"Listar os carros",
+         "description": "Essa rota será responsavel por buscar todos os carros",
+         "tags":["Cars"],
+         "responses": {
+           "404": {
+             "description": "Not found"
+           },
+           "400": {
+             "description": "Indifferent of standard"
+           },
+           "200": {
+             "description":"OK",
+             "content": {
+               "application/json": {
+                 "schema": {
+                    "type":"array",
+                    "$ref":"#/components/schemas/Car"
+                 }
+               }
+             }
+           }
+         }
+       }   
+     },
+     "/car/{id}": {
+       "get": {
+         "summary": "Buscar o carro",
+         "description": "Está rota será responsável por buscar o carro",
+         "tags": ["Cars"],
+         "parameters":[
+           {
+             "name": "id",
+             "in": "path",
+             "description": "Buscando o carro pelo id",
+             "required": true
+           }
+         ],
+         "responses":{
+           "404": {
+             "description": "Not found"
+            },
+           "400": {
+             "description": "Indifferent of standard"
+            },
+           "200": {
+             "description": "OK",
+             "content": {
+               "application/json": {
+                 "schema":{
+                   "type": "array",
+                   "$ref": "#/components/schemas/Car"
+                 }  
+               }  
+             }  
+           }
+         }
+       },
+       "put": {
+        "summary": "Alterar o carro",
+        "description" : "Esta rota será responsável por alterar o carro",
+        "tags": ["Cars"],
+        "parameters": [
+          {
+            "name": "modelo",
+            "in": "query",
+            "description": "Alterando o carro pelo modelo"
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json" :{
+              "schema": {
+                "$ref": "#/components/schemas/Car"                 
+              },
+              "examples":{
+                "car": {
+                  "value": {
+                   "modelo": "Onix 1.6",
+                   "cor": "azul",
+                   "ano": "2020",
+                   "acessorios": [
+                   { "descricao": "Ar-condicionado" },
+                   { "descricao": "Dir. elétrica" },
+                   { "descricao": "Camera de ré" },
+                   { "descricao": "Vidros elétricos dianteiro e traseiro" },
+                   { "descricao": "4 portas" },
+                   { "descricao": "gasolina" },
+                   { "descricao": "Air bag" },
+                   { "descricao": "ABS" }
+                   ],
+                   "quantidadePassageiros": 5
+                  }  
+                }
+              } 
+            }   
+          }             
+        },
+        "responses": {
+          "404": {
+            "description": "Not found"
+           },
+          "400": {
+            "description": "Indifferent of standard"
+           },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema":{
+                  "type": "object",
+                  "$ref": "#/components/schemas/Car"
+                }  
+              }  
+            }  
+          }
+        }  
+      },  
+      "delete": {
+        "summary": "Deletar o carro",
+        "description" : "Está rota será responsável por deletar um carro",
+        "tags": ["Cars"],
+        "parameters" : [
+          {  
+            "name": "id",
+            "in": "path",
+            "description": "Deletando o carro pelo id",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "Not found" 
+          },
+          "400": {
+            "description": "Indifferent of standard"
+          },
+          "204": {
+            "description": "Deleted sucess"  
+          }  
+        }  
+      }
+     },
+     "/user": {
+       "post": {
+         "summary": "Cadastrar o usuario",
+         "description": "Essa rota será responsavel por cadastrar um novo usuario",
+         "tags":["Users"],
+         "requestBody": {
+          "content": {
+            "application/json" :{
+              "schema": {
+                "$ref": "#/components/schemas/User"                 
+              },
+              "examples":{
+                "user": {
+                  "value": {
+                   "nome": "fabio santos",
+                   "cpf": "123.456.789-10",
+                   "data_nascimento": "15/12/2022",
+                   "email": "fabiosantos@uol.com.br",
+                   "senha": "0123456",
+                   "habilitado": "sim"
+                  }  
+                }
+              } 
+            }   
+          }             
+        },
+        "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Indifferent of standard"
+          },
+          "200": {
+           "description": "OK",
+           "content": {
+             "application/json": {
+               "schema": {
+                 "type":"array",
+                 "$ref":"#/components/schemas/User"
+               }
+             }
+           } 
+          }
+        }
+       },
+       "get": {
+         "summary": "Listar os usuarios",
+         "description": "Essa rota será responsavel por buscar todos os usuarios",
+         "tags":["Users"],
+         "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "400": {
+            "description": "Indifferent of standard"
+          },
+          "200" : {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "$ref":"#/components/schemas/User"
+                }
+              }
+            }
+          }
+         }
+       }
+     },
+     "/user/{id}": {
+       "get": {
+         "summary": "Buscar o usuario",
+         "description": "Está rota será responsável por buscar um usuario",
+         "tags":["Users"],
+         "parameters": [
+           {
+             "name": "id",
+             "in":"path",
+             "description": "Buscando o usuario pelo id",
+             "required": true
+           }
+         ],
+         "responses": {
+           "404": {
+             "description": "Not found"
+           },
+           "400": {
+             "description": "Indifferent of standard"
+           },
+           "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "$ref":"#/components/schemas/User"
+                }
+              }
+            }  
+           }
+         }
+       },
+       "put": {
+         "summary": "Alterar o usuario",
+         "description": "Esta rota será responsável por alterar o usuario",
+         "tags":["Users"],
+         "parameters": [
+           {
+             "name": "id",
+             "in":"path",
+             "description":"Alterando o carro pelo id",
+             "required": true
+           }
+         ],
+         "responses": {
+           "404": {
+             "description": "Not found"
+           },
+           "400": {
+             "description": "Indifferent of standard"
+           },
+           "200": {
+             "description": "OK",
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "type": "array",
+                   "$ref":"#/components/schemas/User"
+                 }
+               }
+             }
+           }
+         }
+       },
+       "delete": {
+         "summary":"Deletar o usuario",
+         "description": "Essa rota será responsável por deletar o usuario",
+         "tags":["Users"],
+         "parameters": [
+           {
+             "name": "id",
+             "in": "path",
+             "description":"Deletando o usuario pelo id",
+             "required": true
+           }
+         ],
+         "responses": {
+           "404": {
+             "description": "Not found"
+           },
+           "400": {
+             "description": "Indifferent of standard"
+           },
+           "204": {
+            "description": "Deleted sucess"
+           }           
+         }
+       }
+     },
+     "/rental": {
+       "post": {
+          "summary":"Cadastrar a locadora",
+          "description":"Essa rota será responsavel por cadastrar uma nova locadora",
+          "tags": ["Rentals"],
+          "requestBody": {
+            "content": {
+              "application/json" :{
+                "schema": {
+                  "$ref": "#/components/schemas/Rental"                 
+                },
+                "examples":{
+                  "rental": {
+                    "value": {
+                     "nome": "Localiza Rent a Car",
+                     "cnpj": "16.670.085/0001-55",
+                     "atividades": "Aluguel de carros e gestão de frotas",
+                     "endereco": [
+                        { 
+                          "cep": "986200-500",
+                          "logradouro": "Rua general cannabro",
+                          "complemento": "",
+                          "bairro": "Centro",
+                          "number": "1234",
+                          "localidade": "Rio grande",
+                          "uf": "BR" 
+                        }
+                     ]
+                    }  
+                  }
+                } 
+              }   
+            }             
+          },
+          "responses":{
+            "404": {
+              "description": "Not found"
+            },
+            "400": {
+              "description": "Indifferent of standard"
+            },
+            "201": {
+              "description": "Created sucess",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type":"array",
+                    "$ref":"#/components/schemas/Rental"
+                  }
+                }
+              }
+            }
+          }
+       },
+       "get": {
+         "summary":"Listar as locadoras",
+         "description": "Essa rota será responsável por buscar todas as locadoras",
+         "tags":["Rentals"],
+         "responses": {
+           "404": {
+             "description": "Not Found"
+           },
+           "400": {
+             "description": "Indifferent of standard"
+           },
+           "200": {
+             "content": {
+               "application/json": {
+                 "schema": {
+                  "type":"array", 
+                  "$ref":"#/components/schemas/Rental"
+                 }
+               }
+             }
+           }
+         }
+       }
+     },
+     "/rental/{id}": {
+       "get": {
+         "summary": "Buscar a locadora",
+         "description": "Essa rota será responsável por buscar uma locadora",
+         "tags":["Rentals"],
+         "parameters":[
+           {
+             "name": "id",
+             "in":"path",
+             "description": "Buscando a locadora pelo id",
+             "required":true
+           }
+         ],
+         "responses":{
+           "404": {
+             "description": "Not found"
+           },
+           "400": {
+            "description": "Indifferent of standard"
+           },
+           "200": {
+             "description": "OK",
+             "content": {
+               "application/json": {
+                 "schema": {
+                   "type":"array",
+                   "$ref":"#/components/schemas/Rental"
+                 }
+               }
+             }
+           }
+         }
+       },
+       "put": {
+         "summary":"Alterar a locadora",
+         "description":"Essa rota será responsavel por alterar uma locadora",
+         "tags":["Rentals"],
+         "parameters": [
+           {
+             "name":"id",
+             "in":"path",
+             "description":"Alterando a locadora pelo id",
+             "required":true
+           }
+         ],
+         "requestBody": {
+          "content": {
+            "application/json" :{
+              "schema": {
+                "$ref": "#/components/schemas/Rental"                 
+              },
+              "examples":{
+                "rental": {
+                  "value": {
+                   "nome": "Localiza Rent a Car",
+                   "cnpj": "16.670.085/0001-55",
+                   "atividades": "Aluguel de carros e gestão de frotas",
+                   "endereco": [
+                      { 
+                        "cep": "986200-500",
+                        "logradouro": "Rua general cannabro",
+                        "complemento": "",
+                        "bairro": "Centro",
+                        "number": "1234",
+                        "localidade": "Rio grande",
+                        "uf": "BR" 
+                      }
+                   ]
+                  }  
+                }
+              } 
+            }   
+          }             
+        },
+         "responses": {
+          "404": {
+            "description": "Not found"
+           },
+          "400": {
+            "description": "Indifferent of standard"
+           },
+           "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type":"array",
+                  "$ref":"#/components/schemas/Rental"
+                }
+              }
+            }
+          }
+        }
+       },
+       "delete": {
+         "summary": "Deletar a locadora",
+         "description":"Essa rota será responsável por deletar a locadora",
+         "tags":["Rentals"],
+         "parameters": [
+            {
+              "name":"id",
+              "in":"path",
+              "description":"Alterando a locadora pelo id",
+              "required":true
+            }
+         ],
+         "responses": {
+           "404": {
+             "description": "Not Found"
+           },
+           "400": {
+             "description": "Indifferent standard"
+           },
+           "200": {
+             "description": "OK",
+             "content": {
+               "application/json": {
+                 "schema": {
+                  "type":"array", 
+                  "$ref":"#/components/schemas/Rental"
+                 }
+               }
+             }
+           }
+         }
+       }
+     }
+   },
+   "components": {
+     "schemas": {
+       "Car": {
+        "type": "object",
+        "properties": {
+          "modelo" : {
+            "type": "string"  
+          },
+          "cor": {
+            "type": "string"
+          },
+          "ano": {
+            "type": "string"
+          },
+          "acessorios": [
+            {
+              "descricao":{
+                "type":"string"
+              }
+            }
+          ],
+          "quantidadePassageiros": {
+            "type" : "number"
+          }  
+        }  
+       },
+       "User": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "string"
+          },
+          "data_nascimento": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "senha": {
+            "type": "string"
+          },
+          "habilitado": {
+            "type": "string"
+          }
+        }
+       },
+       "Rental":{
+         "type":"object",
+         "properties": {
+           "nome":{
+             "type":"string"
+           },
+           "cnpj": {
+             "type": "string"
+           },
+           "atividades": {
+             "type":"string"
+           },
+           "endereco":[
+             {
+               "cep": {
+                 "type":"string"
+               },
+               "logradouro": {
+                "type":"string"
+               },
+               "complemento": {
+                "type":"string"
+               },
+               "bairro": {
+                "type":"string"
+               },
+               "number": {
+                "type":"string"
+               },
+               "localidade": {
+                "type":"string"
+               },
+               "uf": {
+                "type":"string"
+               },
+               "isFilial":{
+                 "type": "bolean"
+               } 
+             }
+           ]
+         }
+       }
+     }  
+   }
+}
