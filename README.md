@@ -34,7 +34,7 @@ Para rodar a aplicação é necessario fazer algumas configurações
 
 ```bash
 # Porta a ser utilizada no servidor
-PORT=3000
+PORT_SERVER=3000
 
 # Driver do banco de dados utilizado
 DB_DRIVE=mongodb+srv
@@ -53,6 +53,9 @@ DB_PASS=admin
 
 # Nome do banco de dados criado
 DB_DATABASE=compassolisa
+
+# Ou passando tudo em uma chave só
+MONGODB_LOCAL_KEY=mongodb://localhost:27017/compassolisa
 ```
 
 - [X] Adicionar a dependencias NPM
@@ -78,7 +81,7 @@ npm run dev
 | -----------------| --------------  | ---------- | ----------------- |
 |:arrow_right_hook:|/api/v1/car      |    GET     | Listar Carro      |
 |:heavy_plus_sign: |/api/v1/car      |    POST    | Cadastrar Carro   |
-|:arrow_right_hook:|/api/v1/car/:id  |    GET     | Consultar um Carro|
+|:arrow_right_hook:|/api/v1/car/:id  |    GET     | Consultar o Carro |
 | :recycle:        |/api/v1/car/:id  |    PUT     | Atualizar Carro   |
 |   :x:            |/api/v1/car/:id  |    DELETE  | Deletar Carro     |
 
@@ -88,6 +91,24 @@ npm run dev
 | ---------------- | --------------- | ---------- | ------------------- |
 |:arrow_right_hook:|/api/v1/user     |    GET     | Listar Usuarios     |
 |:heavy_plus_sign: |/api/v1/user     |    POST    | Cadastrar Usuario   |
-|:arrow_right_hook:|/api/v1/user/:id |    GET     | Consultar um Usuario|
+|:arrow_right_hook:|/api/v1/user/:id |    GET     | Consultar o Usuario |
 | :recycle:        |/api/v1/user/:id |    PUT     | Atualizar Usuario   |
 |   :x:            |/api/v1/user/:id |    DELETE  | Deletar Usuario     |
+
+- Rental  :label:
+
+| Action           | URI               | Verb HTTP  | Endepoint            |
+| ---------------- | ----------------- | ---------- | -------------------- |
+|:arrow_right_hook:|/api/v1/rental     |    GET     | Listar Locadoras     |
+|:heavy_plus_sign: |/api/v1/rental     |    POST    | Cadastrar Locadora   |
+|:arrow_right_hook:|/api/v1/rental/:id |    GET     | Consultar a Locadora |
+| :recycle:        |/api/v1/rental/:id |    PUT     | Atualizar Locadora   |
+|   :x:            |/api/v1/rental/:id |    DELETE  | Deletar Locadora     |
+
+`Utilizando o documneto swagger`
+
+- Doc.Swagger
+
+| URI                |
+| ------------------ |
+| /api-docs          |
