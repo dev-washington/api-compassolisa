@@ -1,59 +1,76 @@
 const CarService = require('../service/CarService')
-
+/* const NotFound = require('../errors/NotFound')
+const FieldInvalid = require('../errors/FieldInvalid')
+*/
 class CarController {
-  async create (req, res) {
+  async create (req, res, next) {
     const payload = req.body
     try {
       const result = await CarService.create(payload)
       return res.status(201).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      /*
+      if (error instanceof NotFound) {
+        res.status(404)
+        throw new NotFound()
+      }
+
+      if (error instanceof FieldInvalid) {
+        res.status(400)
+        throw new FieldInvalid()
+      } */
+      next(error)
     }
   }
 
-  async list (req, res) {
-    const payload = req.params
+  async findAll (req, res, next) {
+    const { payload } = req.params
     try {
-      const result = await CarService.list(payload)
+      const result = await CarService.findAll(payload)
       return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.mesage)
+      next(error)
     }
   }
 
-  async findById (req, res) {
+  async findById (req, res, next) {
+    const { id } = req.params
     try {
-      const result = await CarService.findById(req.params.id)
-      if (!result) {
-        return res.status(204).json()
-      } else {
-        return res.status(200).json(result)
-      }
+      const result = await CarService.findById(id)
+      return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.message)
+      next(error)
     }
   }
 
-  async update (req, res) {
-    const id = req.params
-    const payload = req.body
+  async queryParams (req, res, next) {
+    const payload = req.params
+    try {
+      const result = await CarService.queryParams(payload)
+      return res.status(200).json(result)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async update (req, res, next) {
+    const { id } = req.params
+    const { payload } = req.body
     try {
       const result = await CarService.update(id, payload)
       return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      next(error)
     }
   }
 
-  async delete (req, res) {
+  async delete (req, res, next) {
+    const { id } = req.params
     try {
-      const result = await CarService.delete(req.params.id)
-      if (!result) {
-        return res.status(400).json()
-      }
+      const result = await CarService.delete(id)
       return res.status(204).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      next(error)
     }
   }
 }

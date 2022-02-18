@@ -1,12 +1,13 @@
 const UserSchema = require('../schema/UserSchema')
 
 class AuthController {
-  async create (req, res) {
+  async create (req, res, next) {
+    const { email, senha } = req.body
     try {
-      const user = await UserSchema.create(req.body)
+      const user = await UserSchema.create(email, senha)
       return res.status(200).send(user)
     } catch (error) {
-      return res.status(400).send({ error: 'Registration failed' })
+
     }
   }
 }

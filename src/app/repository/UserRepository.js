@@ -5,7 +5,7 @@ class UserRepository {
     return UserSchema.create(payload)
   }
 
-  async list (payload) {
+  async findAll (payload) {
     const result = await UserSchema.find(payload)
     return result
   }
@@ -22,7 +22,7 @@ class UserRepository {
   }
 
   async delete (id) {
-    return UserSchema.deleteOne(id)
+    return UserSchema.findByAndDelete(id)
   }
 }
 

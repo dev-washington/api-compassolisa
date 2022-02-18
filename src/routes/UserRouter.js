@@ -6,7 +6,7 @@ module.exports = (server, routes, prefix = '/api/v1') => {
   routes
     .post('/authenticate', AuthController.create)
     .post('/user', CheckCreate, UserController.create)
-    .get('/user', UserController.list)
+    .get('/user', UserController.findAll)
     .get('/user/:id', UserController.findById)
     .put('/user/:id', UserController.update)
     .delete('/user/:id', UserController.delete)

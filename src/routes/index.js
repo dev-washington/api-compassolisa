@@ -5,21 +5,10 @@ const swagger = require('../routes/SwaggerRouter')
 
 module.exports = server => {
   server.use((req, res, next) => {
-    user(server, new Router())
-    next()
-  })
-}
-
-module.exports = server => {
-  server.use((req, res, next) => {
     car(server, new Router())
-    next()
-  })
-}
-
-module.exports = server => {
-  server.use((req, res, next)=>{
+    user(server, new Router())
     swagger(server, new Router())
+
     next()
   })
 }

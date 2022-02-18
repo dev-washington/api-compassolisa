@@ -10,12 +10,12 @@ module.exports = async (req, res, next) => {
       cor: Joi.string()
         .required(),
 
-      ano: Joi.string()
-        .min('1950')
-        .max('2022')
+      ano: Joi.number()
+        .min(1950)
+        .max(2022)
         .custom((value, help) => {
           if (CheckDate(value)) {
-            return help.message('Ano Inválido')
+            return help.message('data inválida')
           } else {
             return true
           }
@@ -38,6 +38,6 @@ module.exports = async (req, res, next) => {
     if (error) throw error
     return next()
   } catch (error) {
-    return res.status(400).json(error.mensage)
+    return res.status(400).json(error.message)
   }
 }

@@ -105,9 +105,9 @@ npm run dev
 | :recycle:        |/api/v1/rental/:id |    PUT     | Atualizar Locadora   |
 |   :x:            |/api/v1/rental/:id |    DELETE  | Deletar Locadora     |
 
-`Utilizando o documneto swagger`
+`UTILIZANDO O DOCUMENTO SWAGGER`
 
-- Doc.Swagger
+- Documentação Swagger
 
 | URI                |
 | ------------------ |

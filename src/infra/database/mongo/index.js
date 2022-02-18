@@ -1,4 +1,5 @@
 const mongoose = require('mongoose')
+require('dotenv/config')
 
 class Database {
   constructor () {
@@ -6,7 +7,7 @@ class Database {
   }
 
   connect () {
-    return mongoose.connect('mongodb://localhost:27017/compassolisa')
+    return mongoose.connect(process.env.MONGODB_LOCAL)
   }
 }
 

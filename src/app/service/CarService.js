@@ -6,20 +6,23 @@ class CarService {
     return result
   }
 
-  async list (payload) {
-    const result = await CarRepository.list(payload)
-
+  async findAll (payload) {
+    const result = await CarRepository.findAll(payload)
     return result
   }
 
   async findById (id) {
     const result = await CarRepository.findById(id)
+    return result
+  }
 
+  async queryParams (payload) {
+    const result = await CarRepository.queryParams(payload)
     return result
   }
 
   async update (id, payload) {
-    const result = await CarRepository.update({})
+    const result = await CarRepository.update(id, payload)
     return result
   }
 

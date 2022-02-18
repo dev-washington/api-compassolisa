@@ -1,6 +1,7 @@
-const Joi = require('celebrate')
+const Joi = require('joi')
 const CheckCpf = require('../../helper/CheckCPF')
 const CheckDate = require('../../helper/CheckDate')
+const CheckAge = require('../../helper/CheckAge')
 
 module.exports = async (req, res, next) => {
   try {
@@ -19,10 +20,17 @@ module.exports = async (req, res, next) => {
         })
         .required(),
 
-      data_nascimento: Joi.string()
+      data_nascimento: Joi.number()
         .custom((value, help) => {
           if (CheckDate(value)) {
             return help.mesage('Data inválida')
+          }
+          return true
+        })
+        .max('2022')
+        .custom((value, help) => {
+          if (CheckAge(value, help)) {
+            return help.mesage('menor de 18')
           }
           return true
         })
@@ -35,7 +43,8 @@ module.exports = async (req, res, next) => {
         .required(),
 
       hablitado: Joi.string()
-        .default('sim')
+        .Symbol('Sim')
+        .Symbol('Não')
         .required()
     })
 
@@ -45,6 +54,6 @@ module.exports = async (req, res, next) => {
     return next()
   } catch (error) {
     next(error)
-    return res.status(400).json()
+    return res.status(400).json(error.message)
   }
 }

@@ -7,29 +7,30 @@ class UserController {
       const result = await UserService.create(payload)
       return res.status(201).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      return res.status(500).json(error.message)
     }
   }
 
-  async list (req, res) {
+  async findAll (req, res) {
     const payload = req.params
     try {
-      const result = await UserService.list(payload)
+      const result = await UserService.findAll(payload)
       return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      return res.status(500).json(error.message)
     }
   }
 
   async findById (req, res) {
+    const { id } = req.params
     try {
-      const result = await UserService.findById(req.params.id)
+      const result = await UserService.findById(id)
       if (!result) {
         return res.status(204).json()
       }
       return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      return res.status(500).json(error.message)
     }
   }
 
@@ -40,16 +41,17 @@ class UserController {
       const result = await UserService.update(id, payload)
       return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      return res.status(500).json(error.message)
     }
   }
 
   async delete (req, res) {
+    const { id } = req.params
     try {
-      const result = await UserService.delete(req.params.id)
+      const result = await UserService.delete(id)
       return res.status(200).json(result)
     } catch (error) {
-      return res.status(500).json(error.mensage)
+      return res.status(500).json(error.message)
     }
   }
 }

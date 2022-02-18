@@ -6,13 +6,24 @@ class UserService {
     return result
   }
 
-  async list (payload) {
-    const result = await UserRepository.list(payload)
+  async findAll (payload) {
+    const result = await UserRepository.findAll(payload)
     return result
   }
 
   async findById (id) {
     const result = await UserRepository.findById(id)
+    return result
+  }
+
+  async update (id, payload) {
+    const result = await UserRepository.update(id, payload)
+    return result
+  }
+
+  async delete (id) {
+    const result = this.findById(id)
+    await UserRepository.delete(result)
     return result
   }
 }
