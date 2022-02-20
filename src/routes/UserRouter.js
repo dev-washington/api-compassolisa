@@ -1,6 +1,6 @@
-const UserController = require('../app/controller/UserController')
-const CheckCreate = require('../app/validation/user/create')
-const AuthController = require('../app/controller/AuthController')
+const UserController = require('../app/controller/UserController');
+const CheckCreate = require('../app/validation/user/Create');
+const AuthController = require('../app/controller/AuthController');
 
 module.exports = (server, routes, prefix = '/api/v1') => {
   routes
@@ -9,6 +9,6 @@ module.exports = (server, routes, prefix = '/api/v1') => {
     .get('/user', UserController.findAll)
     .get('/user/:id', UserController.findById)
     .put('/user/:id', UserController.update)
-    .delete('/user/:id', UserController.delete)
-  server.use(prefix, routes)
-}
+    .delete('/user/:id', UserController.delete);
+  server.use(prefix, routes);
+};
