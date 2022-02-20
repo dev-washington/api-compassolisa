@@ -1,12 +1,12 @@
-const CarSchema = require('../schema/CarSchema')
-const NotFound = require('../errors/NotFound')
+const CarSchema = require('../schema/CarSchema');
+const NotFound = require('../errors/NotFound');
 
 class CarRepository {
-  async create (payload) {
-    return CarSchema.create(payload)
+  async create(payload) {
+    return CarSchema.create(payload);
   }
 
-  async findAll (payload) {
+  async findAll(payload) {
     const myCustomLabels = {
       totalDocs: 'total',
       docs: 'veiculos',
@@ -18,45 +18,44 @@ class CarRepository {
       meta: false,
       hasPrevPage: false,
       hasNextPage: false
-    }
+    };
 
     const options = {
       page: 1,
       limit: 100,
       customLabels: myCustomLabels
-    }
-    return CarSchema.paginate(payload, options, {})
+    };
+    return CarSchema.paginate(payload, options, {});
   }
 
-  async findById (id) {
-    const result = CarSchema.findById
+  async findById(id) {
+    const result = CarSchema.findById;
 
     result({
       _id: id
-    })
+    });
     if (!result) {
-      throw new NotFound()
+      throw new NotFound();
     }
-    return result
+    return result;
   }
 
-  async update (id, payload) {
-    console.log(payload)
+  async update(id, payload) {
+    console.log(payload);
     const result = await CarSchema.findByIdAndUpdate({
       _id: id,
-      _payload: payload.modelo,
-      _payload: payload.cor,
-      _payload: payload.ano,
-      _payload: payload.acessorios,
-      _payload: payload.quantidadePassageiros
-
-    })
-    return result
+      _modelo: payload.modelo,
+      _cor: payload.cor,
+      _ano: payload.ano,
+      _acessorios: payload.acessorios,
+      _quantidadePassageiros: payload.quantidadePassageiros
+    });
+    return result;
   }
 
-  async delete (id) {
-    return CarSchema.findByIdAndDelete(id)
+  async delete(id) {
+    return CarSchema.findByIdAndDelete(id);
   }
 }
 
-module.exports = new CarRepository()
+module.exports = new CarRepository();
