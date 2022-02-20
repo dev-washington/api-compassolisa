@@ -11,6 +11,7 @@ module.exports = async (req, res, next) => {
       ano: Joi.number()
         .min(1950)
         .max(2022)
+
         .custom((value, help) => {
           if (CheckDate(value)) {
             return help.message('data inválida');
@@ -24,7 +25,7 @@ module.exports = async (req, res, next) => {
       quantidadePassageiros: Joi.number().required()
     });
 
-    const { error } = await schema.validate(req.body, { abortEarly: true });
+    const { error } = await schema.validate(req.body, { abourtEarly: true });
     if (error) throw error;
     return next();
   } catch (error) {
