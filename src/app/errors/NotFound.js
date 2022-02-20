@@ -1,8 +1,8 @@
 class NotFound extends Error {
-  constructor () {
-    super('Carro não foi encontrado')
-    this.name = 'NotFound'
+  constructor() {
+    super('Carro não foi encontrado');
+    this.name = 'NotFound';
   }
 }
 
-module.exports = NotFound
+module.exports = NotFound;
