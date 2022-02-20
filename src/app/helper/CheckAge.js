@@ -1,8 +1,8 @@
-function CheckAge (yearBirth) {
-  const year = new Date()
-  if ((year.getFullYear - yearBirth) >= 18) {
-    return true
+function CheckAge(yearBirth) {
+  const year = new Date();
+  if (year.getFullYear - yearBirth >= 18) {
+    return true;
   }
-  return false
+  return false;
 }
-module.exports = CheckAge
+module.exports = CheckAge;
