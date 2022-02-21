@@ -71,7 +71,7 @@ npm install express
 npm run dev
 ```
 
-**Testando Rotas**
+**Aplicando Rotas**
 
 `UTILIZANDO O POSTMAN OU INSOMNIA`
 
@@ -109,6 +109,24 @@ npm run dev
 
 - Documentação Swagger
 
-| URI                |
-| ------------------ |
-| /api-docs          |
+Action        | URI                |
+------------- | ------------------ |
+:file_folder: | /api-docs          |
+
+### Testando Rotas
+Para testar a uma rota pelo jest
+```bash
+# utilize esse comando
+npx jest --watchAll
+
+```
+### Agradecimentos
+*Bruna Santos*
+*Diego Bueno*
+*Felipe Silva*
+*Gabriel Missio*
+*Giovanni Hoffmann*
+*Thais Nicodemus*
+
+### License
+MIT
