@@ -127,10 +127,10 @@ npx jest --watchAll
 ##
 
 ### :hammer_and_pick: Ferramentas Utilizadas
-"Postman"
-"Visual Code"
-"MongoDB"
-"NodeJs"
+*Postman
+*Visual Code
+*MongoDB
+*NodeJs
 
 ##
 
