@@ -127,10 +127,12 @@ npx jest --watchAll
 ##
 
 ### :hammer_and_pick: Ferramentas Utilizadas
-*Postman
-*Visual Code
-*MongoDB
-*NodeJs
+| Softwares   |
+|------------ |
+|`Postman`    |
+|`Visual Code`|
+|`MongoDB`    |
+|`NodeJs`     |
 
 ##
 
@@ -152,8 +154,6 @@ npx jest --watchAll
 
 &nbsp;
 *Thais Nicodemus*
-
-&nbsp;
 
 ##
 
