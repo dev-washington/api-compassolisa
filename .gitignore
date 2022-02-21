@@ -1,4 +1,4 @@
-node_modules/*
-.env/*
-.eslintrc.js/*
-.prettierrc/*
+node_modules
+.env
+.eslintrc.js
+.prettierrc
