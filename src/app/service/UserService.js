@@ -1,20 +1,31 @@
-const UserRepository = require('../repository/UserRepository')
+const UserRepository = require('../repository/UserRepository');
 
 class UserService {
-  async create (payload) {
-    const result = await UserRepository.create(payload)
-    return result
+  async create(payload) {
+    const result = await UserRepository.create(payload);
+    return result;
   }
 
-  async list (payload) {
-    const result = await UserRepository.list(payload)
-    return result
+  async findAll(payload) {
+    const result = await UserRepository.findAll(payload);
+    return result;
   }
 
-  async findById (id) {
-    const result = await UserRepository.findById(id)
-    return result
+  async findById(id) {
+    const result = await UserRepository.findById(id);
+    return result;
+  }
+
+  async update(id, payload) {
+    const result = await UserRepository.update(id, payload);
+    return result;
+  }
+
+  async delete(id) {
+    const result = this.findById(id);
+    await UserRepository.delete(result);
+    return result;
   }
 }
 
-module.exports = new UserService()
+module.exports = new UserService();

@@ -13,7 +13,7 @@ module.exports = async (req, res, next) => {
         .max(2022)
         .custom((value, help) => {
           if (CheckDate(value)) {
-            return help.message('data inválida');
+            return help.message();
           }
           return true;
         })

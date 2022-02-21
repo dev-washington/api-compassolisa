@@ -1,29 +1,29 @@
-const UserSchema = require('../schema/UserSchema')
+const UserSchema = require('../schema/UserSchema');
 
 class UserRepository {
-  async create (payload) {
-    return UserSchema.create(payload)
+  async create(payload) {
+    return UserSchema.create(payload);
   }
 
-  async list (payload) {
-    const result = await UserSchema.find(payload)
-    return result
+  async findAll(payload) {
+    const result = await UserSchema.find(payload);
+    return result;
   }
 
-  async findById (id) {
+  async findById(id) {
     return UserSchema.findById({
       _id: id
-    })
+    });
   }
 
-  async update (id, payload) {
-    const result = await UserSchema.findByIdAndUpdate(id, payload)
-    return result
+  async update(id, payload) {
+    const result = await UserSchema.findByIdAndUpdate(id, payload);
+    return result;
   }
 
-  async delete (id) {
-    return UserSchema.deleteOne(id)
+  async delete(id) {
+    return UserSchema.findByAndDelete(id);
   }
 }
 
-module.exports = new UserRepository()
+module.exports = new UserRepository();

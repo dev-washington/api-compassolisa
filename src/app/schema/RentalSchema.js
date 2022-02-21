@@ -1,31 +1,27 @@
 const mongoose = require('mongoose');
 const mongoosePaginate = require('mongoose-paginate-v2');
 
-const CarSchema = mongoose.Schema({
-  modelo: {
+const RentalSchema = mongoose.Schema({
+  nome: {
     type: String,
     required: true
   },
-  cor: {
+  cnpj: {
     type: String,
     required: true
   },
-  ano: {
+  atividades: {
     type: String,
     required: true
   },
-  acessorios: {
+  endereco: {
     type: Array,
-    required: true
-  },
-  quantidadePassageiros: {
-    type: Number,
     required: true
   }
 });
 
-CarSchema.plugin(mongoosePaginate);
+RentalSchema.plugin(mongoosePaginate);
 
-const Car = mongoose.model('Car', CarSchema);
+const Rental = mongoose.model('Rental', RentalSchema);
 
-module.exports = Car;
+module.exports = Rental;
