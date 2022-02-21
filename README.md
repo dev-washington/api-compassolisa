@@ -129,19 +129,15 @@ npx jest --watchAll
 *Bruna Santos*
 
 &nbsp;
-
 *Diego Bueno*
 
 &nbsp;
-
 *Felipe Silva*
 
 &nbsp;
-
 *Gabriel Missio*
 
 &nbsp;
-
 *Giovanni Hoffmann*
 
 &nbsp;
