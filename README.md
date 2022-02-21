@@ -7,7 +7,7 @@
 # :card_index_dividers: API restfull denominada compassolisa 
 Olá dev tudo bem? Este é o 4º Desafio da 5º Sprint do programa de bolsas NodeJs, onde foi realizado um aplicação API REST FULL, com os conhecimentos adquiridos pelos instrutores do programa, a cada sprint realizada e os recursos fornecidos pelo programa.  
 
----
+##
 
 ### :clipboard: Descrição do sistema a ser atendido
 "Olá bom dia, gostaria de solicitar um sistema para abertura da minha locadora de carros. Ela se chama "compassolisa" e
@@ -17,7 +17,7 @@ necessitando o Back-end, por isso contatamos vocês para desenvolver nosso Back-
 Iremos atuar em 3 etapas e dependendo de como for a primeira fecharemos o contrato da segunda e a terceira etapa.
 Nesta primeira etapa nos pensamos em criar os registros de carros, usuários e a autenticação."
 
----
+##
 
 ###  :link: Obtendo a aplicação
 Para obter o projeto em sua máquina local
@@ -113,6 +113,8 @@ Action        | URI                |
 ------------- | ------------------ |
 :file_folder: | /api-docs          |
 
+##
+
 ### Testando Rotas
 Para testar a uma rota pelo jest
 ```bash
@@ -120,13 +122,32 @@ Para testar a uma rota pelo jest
 npx jest --watchAll
 
 ```
+
+##
+
 ### Agradecimentos
 *Bruna Santos*
+
+&nbsp;
+
 *Diego Bueno*
+
+&nbsp;
+
 *Felipe Silva*
+
+&nbsp;
+
 *Gabriel Missio*
+
+&nbsp;
+
 *Giovanni Hoffmann*
+
+&nbsp;
 *Thais Nicodemus*
+
+##
 
 ### License
 MIT
