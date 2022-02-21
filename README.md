@@ -27,6 +27,7 @@ Para obter o projeto em sua máquina local
 git clone https://github.com/washington-wj/api-compassolisa.git
 ```
 
+##
 
 ### :round_pushpin: Adicionando itens
 Para rodar a aplicação é necessario fazer algumas configurações
@@ -125,7 +126,7 @@ npx jest --watchAll
 
 ##
 
-### Ferramentas Utilizadas
+### :hammer_and_pick: Ferramentas Utilizadas
 "Postman"
 "Visual Code"
 "MongoDB"
@@ -133,7 +134,7 @@ npx jest --watchAll
 
 ##
 
-### Agradecimentos
+### :clinking_glasses: Agradecimentos
 &nbsp;
 *Bruna Santos*
 
@@ -156,8 +157,10 @@ npx jest --watchAll
 
 ##
 
-### Desenvolvedor
+### :man_technologist: Desenvolvedor
 *Washington jose*
+
+##
 
 ### Licença
 MIT
