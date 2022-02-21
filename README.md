@@ -125,7 +125,16 @@ npx jest --watchAll
 
 ##
 
+### Ferramentas Utilizadas
+"Postman"
+"Visual Code"
+"MongoDB"
+"NodeJs"
+
+##
+
 ### Agradecimentos
+&nbsp;
 *Bruna Santos*
 
 &nbsp;
@@ -143,7 +152,12 @@ npx jest --watchAll
 &nbsp;
 *Thais Nicodemus*
 
+&nbsp;
+
 ##
 
-### License
+### Desenvolvedor
+*Washington jose*
+
+### Licença
 MIT
